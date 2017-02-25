@@ -1,0 +1,65 @@
+<div class="container country-view">
+    <div class="row">
+        <div class="col-xs-12 button-div">
+            <input type="button" class="custom-button margin-right-10px" value="Home" ng-click="cvc.goTo('home')"  />
+            <input type="button" class="main-button" value="Browse Countries" ng-click="cvc.goTo('countries')" />
+        </div>
+        <div class="col-xs-12">
+            <div class="col-lg-8 col-md-8 no-padding">
+                <h2 class="country-name">{{cvc.countryClicked.countryName}}</h2>
+                <div class="col-xs-12 list-item no-padding">
+                    <div class="col-lg-4 col-md-4 no-padding text-left">Population of Country:</div>
+                    <div class="col-lg-6 col-md-6 text-left">{{cvc.countryClicked.population}}</div>
+                </div>
+
+                <div class="col-xs-12 list-item no-padding">
+                    <div class="col-lg-4 col-md-4 text-left no-padding">Area:</div>
+                    <div class="col-lg-6 col-md-6 text-left">{{cvc.countryClicked.areaInSqKm | number}}</div>
+                </div>
+
+                <div class="col-xs-12 list-item no-padding">
+                    <div class="col-lg-4 col-md-4 text-left no-padding">Capital:</div>
+                    <div class="col-lg-6 col-md-6 text-left">{{cvc.countryClicked.capital}}</div>
+                </div>
+
+                <div class="col-xs-12 list-item no-padding" >
+                    <div class="col-lg-4 col-md-4 text-left no-padding">Population of Capital</div>
+                    <div class="col-lg-6 col-md-6 text-left">{{cvc.capitalPopulation | number}}</div>
+                </div>
+
+                <div class="col-xs-12 list-item no-padding neighbour-country">
+                    <div class="col-lg-4 col-md-4 text-left no-padding">3 neighbors</div>
+                    <div class="col-lg-6 col-md-6 text-left">
+                        <ul>
+                            <li ng-click="cvc.neighbouringCountryCliked(cvc.neighbourCountries[0])" ng-if="cvc.neighbourCountries[0]">
+                                {{cvc.neighbourCountries[0].countryName}}
+                            </li>
+
+                            <li ng-click="cvc.neighbouringCountryCliked(cvc.neighbourCountries[1])" ng-if="cvc.neighbourCountries[1]">
+                                {{cvc.neighbourCountries[1].countryName}}
+                            </li>
+
+                            <li ng-click="cvc.neighbouringCountryCliked(cvc.neighbourCountries[2])" ng-if="cvc.neighbourCountries[2]">
+                                {{ cvc.neighbourCountries[2].countryName}}
+                            </li>
+                        </ul>
+
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-lg-4 col-md-4 no-padding">
+                <div class="col-lg-12 col-md-12">
+                    <img ng-src="http://www.geonames.org/flags/x/{{cvc.countryClicked.countryCode | lowercase}}.gif" alt="map"/>
+                </div>
+                <div class="col-lg-12">
+                    <br>
+                </div>
+                <div class="col-lg-12 col-md-12">
+                    <img width="242px" ng-src="http://www.geonames.org/img/country/250/{{cvc.countryClicked.countryCode }}.png" alt="flag"/>
+                </div>
+            </div>
+             
+        </div>
+    </div>
+</div>
